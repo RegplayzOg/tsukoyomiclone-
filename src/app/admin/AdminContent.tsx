@@ -43,7 +43,7 @@ export default function AdminContent() {
     setLoading(true);
     const usersData = await getAllUsersAction();
     const reportsData = await getReportsAction(reportType);
-    if (Array.isArray(usersData)) setUsers(usersData as User[]);
+    if (Array.isArray(usersData)) setUsers(usersData as unknown as User[]);
     if (Array.isArray(reportsData)) setReports(reportsData);
     setLoading(false);
   };
