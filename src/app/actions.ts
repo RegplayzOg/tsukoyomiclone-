@@ -497,7 +497,7 @@ export async function syncAniListAction() {
     revalidatePath("/watchlist");
     return { success: true, count: processedCount };
   } catch (error: unknown) {
-    const errorMessage = error instanceof Error ? error.message : String(err);
+    const errorMessage = error instanceof Error ? error.message : String(error);
     console.error("Sync process failed:", errorMessage);
     return { error: "Sync failed: " + errorMessage };
   }
