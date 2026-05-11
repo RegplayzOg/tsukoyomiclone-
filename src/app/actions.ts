@@ -22,7 +22,7 @@ export async function fetchAnimeAction(params: any) {
     if (apiResults && Array.isArray(apiResults.media)) {
       // Fire and forget - save to DB asynchronously
       Promise.all(
-        apiResults.media.map(anime =>
+        apiResults.media.map((anime: import("../lib/anime-db").AnimeMedia) =>
           query(
             `INSERT INTO anime (id, title_romaji, title_english, description, format, status, episodes, average_score, season, season_year, cover_image_large, cover_image_extra_large, banner_image, genres)
              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
